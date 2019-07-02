@@ -9,7 +9,7 @@
 // ...
 
 
-const getDbConnection = require('../../common/db');
+const getDbConnection = require('../common/db');
 const notePool = getDbConnection('note');
 
 // Finds who to send email to based on thier subscribed tags and radiuses, and project locations

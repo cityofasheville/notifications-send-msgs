@@ -1,5 +1,5 @@
 
-const getDbConnection = require('../../common/db');
+const getDbConnection = require('../common/db');
 const mds_pool = getDbConnection('mds');   // MDAStore DB has permits
 const note_pool = getDbConnection('note'); //Notification DB has user_preferences
 

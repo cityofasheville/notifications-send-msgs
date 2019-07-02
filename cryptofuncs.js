@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-require('dotenv').config();
 
 function getHash(encodedEmail,expires){
   const cryptokey = process.env.emailhashkey;
