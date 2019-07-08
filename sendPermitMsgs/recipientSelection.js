@@ -53,8 +53,6 @@ async function recipientSelection() {
       }
     });
 
-console.log(recipients);
-
     noteClient.release();
     return Promise.resolve(recipients);
   } catch (e) { 

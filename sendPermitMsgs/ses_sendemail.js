@@ -26,9 +26,9 @@ let params = {
       Data: 'City of Asheville Notifications'
      }
     },
-  Source: process.env.EMAIL_SENDER, /* required */
+  Source: process.env.email_sender, /* required */
   ReplyToAddresses: [
-     process.env.EMAIL_SENDER,
+     process.env.email_sender,
   ],
 };
 
@@ -43,7 +43,7 @@ function ses_sendemail(emailAddr, htmlEmail){
     // Handle promise's fulfilled/rejected states
     sendPromise.then(
     function(data) {
-        console.log(data.MessageId);
+        console.log("Email sent:", emailAddr, data.MessageId);
     }).catch(
         function(err) {
         console.error(err, err.stack);
