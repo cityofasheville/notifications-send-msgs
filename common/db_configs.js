@@ -1,5 +1,4 @@
-
-// require('dotenv').config();
+require('dotenv').config();
 const defaultConfigs = {
   note: {
     db_type: 'pg',

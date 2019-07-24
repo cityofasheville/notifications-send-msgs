@@ -60,6 +60,13 @@ async function recipientSelection() {
   }
 };
 
+//This allows module to be called directly from command line for testing
+if (require.main === module) {
+  recipientSelection().then(
+    result => console.log(result)
+  )
+}
+
 module.exports = recipientSelection;
 
 

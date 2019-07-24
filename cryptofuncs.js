@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const crypto = require('crypto');
 
 function getHash(encodedEmail,expires){
@@ -7,7 +9,9 @@ function getHash(encodedEmail,expires){
 }
 
 function createunsub_url(email){ // build a url to unsubscribe this email
+
   const encodedEmail = encodeURIComponent(email);
+
   const unsub_url = process.env.unsub_url;
   
   var now = Date.now(); //milliseconds since epoch
@@ -17,6 +21,13 @@ function createunsub_url(email){ // build a url to unsubscribe this email
   const hash = getHash(encodedEmail,thirtyDaysFromNow)
   const fullUrl = unsub_url + '?e=' + encodedEmail + '&x=' + thirtyDaysFromNow + '&h=' + hash;
   return fullUrl;
+}
+
+//This allows module to be called directly from command line for testing
+if (require.main === module) {
+  
+  console.log(createunsub_url('jtwilson@ashevillenc.gov'))
+  
 }
 
 module.exports = { getHash, createunsub_url };

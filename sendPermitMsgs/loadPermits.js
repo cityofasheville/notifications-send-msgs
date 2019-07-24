@@ -18,7 +18,7 @@ async function loadPermits() {
     const permits = await mds_client.query(`
       SELECT tag, permit_num, applied_date, "name", x, y
       FROM internal.notification_emails
-      where applied_date >= NOW() - '15 days'::interval
+      where applied_date >= NOW() - '90 days'::interval
     `);
     for(row of permits.rows){
       const topics = await note_client.query(`
@@ -43,6 +43,11 @@ async function loadPermits() {
   } catch (e) { 
     return Promise.reject(e);
   }
+}
+
+//This allows module to be called directly from command line for testing
+if (require.main === module) {
+  loadPermits();
 }
 
 module.exports = loadPermits;

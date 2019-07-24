@@ -1,8 +1,7 @@
 let AWS = require('aws-sdk');
+require('dotenv').config();
 
 AWS.config.update({region: 'us-east-1'});
-// require('dotenv').config();
-
 
 let params = {
   Destination: { /* required */
