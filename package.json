@@ -1,12 +1,27 @@
 {
   "name": "notifications-send-msgs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityofasheville/notifications-send-msgs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cityofasheville/notifications-send-msgs/issues"
+  },
+  "homepage": "https://github.com/cityofasheville/notifications-send-msgs#readme",
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.486.0",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
+    "pg": "^7.11.0",
+    "pug": "^2.0.4"
+  }
 }

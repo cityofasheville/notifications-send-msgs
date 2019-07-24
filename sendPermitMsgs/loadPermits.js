@@ -18,7 +18,7 @@ async function loadPermits() {
     const permits = await mds_client.query(`
       SELECT tag, permit_num, applied_date, "name", x, y
       FROM internal.notification_emails
-      where applied_date >= NOW() - '16 days'::interval
+      where applied_date >= NOW() - '15 days'::interval
     `);
     for(row of permits.rows){
       const topics = await note_client.query(`

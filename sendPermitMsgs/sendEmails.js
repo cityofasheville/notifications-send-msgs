@@ -5,18 +5,15 @@ const cryptofuncs = require('../cryptofuncs');
 
 const compiledFunction = pug.compileFile(path.join(__dirname, '/email.pug'));
 
-async function sendEmails(recipients) { console.log(recipients)
+async function sendEmails(recipients) {
     try {
         // send emails
         Object.keys(recipients).forEach(emailAddr => {
             let recipient = {};
             recipient.listOfTopics = recipients[emailAddr];
-            recipient.unsubURL = cryptofuncs.createUnsubURL(emailAddr);
-            console.log('Email sent to:', emailAddr);
+            recipient.unsub_url = cryptofuncs.createunsub_url(emailAddr);
             let htmlEmail = compiledFunction(recipient);
-            console.log(htmlEmail);
             ses_sendemail(emailAddr,htmlEmail);
-
             return;
         });
         return Promise.resolve();
